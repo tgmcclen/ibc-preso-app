@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  p Here are the #{beers.length} #{title}
+
+  div
+    each b in beers
+      div(style="clear:both;")
+        img(src=b.thumbnail,style="float:right;")
+        h3
+          a(href=b.self)= b.name
+        p= b.short_description
+        ul
+          if b.style
+            li Style: #{b.style.name}
+          if b.country
+            li Country: #{b.country.name}
+          if b.brewery
+            li Brewery: #{b.brewery.name}
+          if b.size
+            li Size: #{b.size.name}
